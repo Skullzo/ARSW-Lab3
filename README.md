@@ -33,11 +33,11 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 **Luego se ejecutó el programa pero esta ves cambiando el límite de stock de ```5000``` a ```1000```, dejando la producción rápida. Como se puede observar en el Java VisualVM, el porcentaje de consumo de CPU fue muy similar (```4.0%```) a cuando el límite de stock era de ```5000```. Sumado a ello, no se generó ningún error.**
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.1.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
 
 **Por último, se ejecutó el programa cambiando el límite de stock de ```1000``` a ```10```, dejando la producción rápida. Luego de ejecutar el programa simultáneamente con Java VisualVM, el porcentaje de consumo de CPU fue de ```4.2%```, muy similar a los dos experimentos anteriores, en el cual tampoco se produjo ningún error.**
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.3.PNG)
 
 #### Parte II. – Antes de terminar la clase.
 
