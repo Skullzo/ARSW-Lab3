@@ -27,9 +27,15 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
+**Ahora, se realizaron las respectivas modificaciones a la clase ```Producer``` y ```Consumer``` respectivamente, haciendo que el productor produzca muy rápido y el consumidor consuma lento. Asimismo se estableció el límite de stock en el valor original que es de ```5000```. Al ejecutar el programa simultáneamente con el Java VisualVM, el porcentaje de consumo de CPU fue de ```4.2%```. Inicialmente el consumo de CPU se debe unicamente al productor (en los primeros 5 segundos).**
+
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.1.PNG)
 
+**Luego se ejecutó el programa pero esta ves cambiando el límite de stock de ```5000``` a ```1000```, dejando la producción rápida. Como se puede observar en el Java VisualVM, el porcentaje de consumo de CPU fue muy similar (```4.0%```) a cuando el límite de stock era de ```5000```. Sumado a ello, no se generó ningún error.**
+
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
+
+**Por último, se ejecutó el programa cambiando el límite de stock de ```1000``` a ```10```, dejando la producción rápida. Luego de ejecutar el programa simultáneamente con Java VisualVM, el porcentaje de consumo de CPU fue de ```4.2%```, muy similar a los dos experimentos anteriores, en el cual tampoco se produjo ningún error.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.3.PNG)
 
