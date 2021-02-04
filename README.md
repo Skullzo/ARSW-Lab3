@@ -46,11 +46,11 @@ Teniendo en cuenta los conceptos vistos de condición de carrera y sincronizaci�
 - La búsqueda distribuida se detenga (deje de buscar en las listas negras restantes) y retorne la respuesta apenas, en su conjunto, los hilos hayan detectado el número de ocurrencias requerido que determina si un host es confiable o no (_BLACK_LIST_ALARM_COUNT_).
 - Lo anterior, garantizando que no se den condiciones de carrera.
 
-**Para el desarrollo de este punto, agregamos una variable booleana en la clase HostBlackListsValidator que nos dijera si ya había superado las ocurrencias o no.**
+**Para el desarrollo de este punto, agregamos una variable booleana en la clase ```HostBlackListsValidator``` que nos dice si ya había superado las ocurrencias o no.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.1.PNG)
 
-**En hilo modificamos la bandera y miramos que no haya superado el limite de ocurrencias para hacerlo, de ahí pues evaluamos que la bandera sea false para que se siga ejecutando, de lo contrario ya no será necesario.**
+**En el hilo modificamos la bandera y miramos que no haya superado el límite de ocurrencias para hacerlo, de ahí pues evaluamos que la bandera sea ```false``` para que se siga ejecutando, de lo contrario ya no será necesario.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.2.PNG)
 
