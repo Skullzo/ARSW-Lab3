@@ -1,6 +1,3 @@
-
-  
-  
 ### Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software – ARSW
 
@@ -17,6 +14,11 @@ Este laboratorio tiene como fin que el estudiante conozca y aplique conceptos pr
 Control de hilos con wait/notify. Productor/consumidor.
 
 1. Revise el funcionamiento del programa y ejecútelo. Mientras esto ocurren, ejecute jVisualVM y revise el consumo de CPU del proceso correspondiente. A qué se debe este consumo?, cual es la clase responsable?
+
+**Luego de realizar el respectivo análisis del código, se demostró que la clase responsable del funcionamiento del programa es ```StartProduction()```, y al realizar la respectiva ejecución del programa y ejecutarlo mientras ejecutábamos Java VisualVM, se demostró un consumo de recursos excesivamente alto, al crear los hilos de ```Consumer``` y ```Producer``` y correrlos infinitamente sin control alguno usando un ciclo ```while(true)``` que se ejecuta infinitamente sin ninguna interrupción.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.1.PNG)
+
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
@@ -71,5 +73,11 @@ Sincronización y Dead-Locks.
 
 11. Para finalizar, implemente la opción STOP.
 
+## Autores
+[Alejandro Toro Daza](https://github.com/Skullzo)
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este contenido hace parte del curso Arquitecturas de Software del programa de Ingeniería de Sistemas de la Escuela Colombiana de Ingeniería, y está licenciado como <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+[David Fernando Rivera Vargas](https://github.com/DavidRiveraRvD)
+## Licencia
+Este contenido hace parte del curso Arquitecturas de Software del programa de Ingeniería de Sistemas de la Escuela Colombiana de Ingeniería, y está licenciado como <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />
