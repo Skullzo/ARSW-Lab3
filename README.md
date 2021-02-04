@@ -17,7 +17,7 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 **Luego de realizar el respectivo análisis del código, se demostró que la clase responsable del funcionamiento del programa es ```StartProduction()```, y al realizar la respectiva ejecución del programa y ejecutarlo mientras ejecutábamos Java VisualVM, se demostró un consumo de recursos excesivamente alto, al crear los hilos de ```Consumer``` y ```Producer``` y correrlos infinitamente sin control alguno usando un ciclo ```while(true)``` que se ejecuta infinitamente sin ninguna interrupción, con un porcentaje de consumo de CPU máximo de ```5.2%```.**
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.1.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.PNG)
 
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
 
