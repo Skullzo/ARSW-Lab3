@@ -15,12 +15,18 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 1. Revise el funcionamiento del programa y ejecútelo. Mientras esto ocurren, ejecute jVisualVM y revise el consumo de CPU del proceso correspondiente. A qué se debe este consumo?, cual es la clase responsable?
 
-**Luego de realizar el respectivo análisis del código, se demostró que la clase responsable del funcionamiento del programa es ```StartProduction()```, y al realizar la respectiva ejecución del programa y ejecutarlo mientras ejecutábamos Java VisualVM, se demostró un consumo de recursos excesivamente alto, al crear los hilos de ```Consumer``` y ```Producer``` y correrlos infinitamente sin control alguno usando un ciclo ```while(true)``` que se ejecuta infinitamente sin ninguna interrupción.**
+**Luego de realizar el respectivo análisis del código, se demostró que la clase responsable del funcionamiento del programa es ```StartProduction()```, y al realizar la respectiva ejecución del programa y ejecutarlo mientras ejecutábamos Java VisualVM, se demostró un consumo de recursos excesivamente alto, al crear los hilos de ```Consumer``` y ```Producer``` y correrlos infinitamente sin control alguno usando un ciclo ```while(true)``` que se ejecuta infinitamente sin ninguna interrupción, con un porcentaje de consumo de CPU máximo de ```5.2%```.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.1.PNG)
 
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
+
+**Para la realización de los ajustes necesarios para que la solución usara más eficientemente la CPU, se requirió el uso de varios bloqueos de la queue en los hilos de ```Producer``` y ```Costumer``` para poder reducir el desempeño de la CPU, como se puede observar en la imagen de Java VisualVM, la CPU tuvo un porcentaje de uso máximo de ```2.3%```.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.2.PNG)
+
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
+
 
 
 #### Parte II. – Antes de terminar la clase.
