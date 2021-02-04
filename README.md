@@ -15,7 +15,7 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 1. Revise el funcionamiento del programa y ejecútelo. Mientras esto ocurren, ejecute jVisualVM y revise el consumo de CPU del proceso correspondiente. A qué se debe este consumo?, cual es la clase responsable?
 
-**Al**
+**Luego de realizar el respectivo análisis del código, se demostró que la clase responsable del funcionamiento del programa es ```StartProduction()```, y al realizar la respectiva ejecución del programa y ejecutarlo mientras ejecutábamos Java VisualVM, se demostró un consumo de recursos excesivamente alto, al crear los hilos de ```Consumer``` y ```Producer``` y correrlos infinitamente sin control alguno usando un ciclo ```while(true)``` que se ejecuta infinitamente sin ninguna interrupción.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.1.PNG)
 
