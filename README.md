@@ -33,11 +33,11 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 **Luego se ejecutó el programa pero esta ves cambiando el límite de stock de ```5000``` a ```1000```, dejando la producción rápida. Como se puede observar en el Java VisualVM, el porcentaje de consumo de CPU fue muy similar (```4.0%```) a cuando el límite de stock era de ```5000```. Sumado a ello, no se generó ningún error.**
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.1.PNG)
 
 **Por último, se ejecutó el programa cambiando el límite de stock de ```1000``` a ```10```, dejando la producción rápida. Luego de ejecutar el programa simultáneamente con Java VisualVM, el porcentaje de consumo de CPU fue de ```4.2%```, muy similar a los dos experimentos anteriores, en el cual tampoco se produjo ningún error.**
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.3.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.2.PNG)
 
 #### Parte II. – Antes de terminar la clase.
 
@@ -45,6 +45,14 @@ Teniendo en cuenta los conceptos vistos de condición de carrera y sincronizaci�
 
 - La búsqueda distribuida se detenga (deje de buscar en las listas negras restantes) y retorne la respuesta apenas, en su conjunto, los hilos hayan detectado el número de ocurrencias requerido que determina si un host es confiable o no (_BLACK_LIST_ALARM_COUNT_).
 - Lo anterior, garantizando que no se den condiciones de carrera.
+
+** Para el desarrollo de este punto, agregamos una variable booleana en la clase HostBlackListsValidator que nos dijera si ya había superado las ocurrencias o no. 
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
+
+**En hilo modificamos la bandera y miramos que no haya superado el limite de ocurrencias para hacerlo, de ahí pues evaluamos que la bandera sea false para que se siga ejecutando, de lo contrario ya no será necesario. 
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
 
 #### Parte III. – Avance para la siguiente clase
 

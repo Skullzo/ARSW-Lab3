@@ -16,7 +16,10 @@ public class HostBlackListsValidator {
      * NOT Trustworthy, and the list of the five blacklists returned.
      * @param ipaddress suspicious host's IP address.
      * @return Blacklists numbers where the given host's IP address was found.
-     */   
+     */
+
+    public boolean bandera = false;
+
 public List<Integer> checkHost(String ipaddress,int N) throws InterruptedException{
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
         ArrayList<BlackListThread> threads = new ArrayList<BlackListThread>();       
@@ -26,11 +29,11 @@ public List<Integer> checkHost(String ipaddress,int N) throws InterruptedExcepti
         int mod = skds.getRegisteredServersCount()%N;
         for (int i = 0;i<N;i++) {
         		if(i == N-1) {
-        			BlackListThread h = new BlackListThread((i*count),(i*count) + count + mod ,ipaddress);
+        			BlackListThread h = new BlackListThread((i*count),(i*count) + count + mod ,ipaddress, this );
         			threads.add(h);
         			h.start();
         		}else {
-        			BlackListThread h = new BlackListThread((i*count),(i*count)+count,ipaddress);
+        			BlackListThread h = new BlackListThread((i*count),(i*count)+count,ipaddress, this);
         			threads.add(h);
         			h.start();
         		}
@@ -54,5 +57,13 @@ public List<Integer> checkHost(String ipaddress,int N) throws InterruptedExcepti
         
         return blackListOcurrences;
     } 
-    private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName()); 
+    private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
+
+    public void setBandera(boolean flag) {
+        this.bandera = flag;
+    }
+
+    public boolean getBandera() {
+        return bandera;
+    }
 }
