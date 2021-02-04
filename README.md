@@ -48,11 +48,11 @@ Teniendo en cuenta los conceptos vistos de condición de carrera y sincronizaci�
 
 ** Para el desarrollo de este punto, agregamos una variable booleana en la clase HostBlackListsValidator que nos dijera si ya había superado las ocurrencias o no. 
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.1.PNG)
 
 **En hilo modificamos la bandera y miramos que no haya superado el limite de ocurrencias para hacerlo, de ahí pues evaluamos que la bandera sea false para que se siga ejecutando, de lo contrario ya no será necesario. 
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte1.3.2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.2.PNG)
 
 #### Parte III. – Avance para la siguiente clase
 
