@@ -27,7 +27,9 @@ public class Producer extends Thread {
 	}
     @Override
     public void run() {
-        fastProduction(); 
+//		optimalProduction();
+		fastProduction();
+//		originalProduction();
     }
     public void originalProduction() {
 		while (true) {
