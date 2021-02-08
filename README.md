@@ -160,7 +160,32 @@ public void actionPerformed(ActionEvent e) {
 	}
 	```
 
+**Teniendo en cuenta las posibles regiones críticas en lo que respecta a la pelea de los inmortales, se le hicieron las siguientes modificaciones al código, añadiendo como dice en el enunciado bloques sincronizados anidados, en los cuales se implementó satisfactoriamente una estrategia de bloqueo que evite las condiciones de carrera, quedando el código de la siguiente forma.**
+
+```java
+public void fight(Immortal i2) {
+		if (this.getId() < i2.getId()) {
+			synchronized (i2) {
+				synchronized (this) {
+					callouts(i2);
+				}
+
+			}
+		} else {
+			synchronized (this) {
+				synchronized (i2) {
+					callouts(i2);
+			}
+		}
+	}
+}
+```
+
 7. Tras implementar su estrategia, ponga a correr su programa, y ponga atención a si éste se llega a detener. Si es así, use los programas jps y jstack para identificar por qué el programa se detuvo.
+
+**Luego de correr el programa, se detuvo automáticamente luego de ejecutarlo, retornando todas las peleas de los inmortales de la siguiente forma.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.7.PNG)
 
 8. Plantee una estrategia para corregir el problema antes identificado (puede revisar de nuevo las páginas 206 y 207 de _Java Concurrency in Practice_).
 
@@ -172,7 +197,7 @@ public void actionPerformed(ActionEvent e) {
 
 11. Para finalizar, implemente la opción STOP.
 
-**Para finalizar con el laboratorio, se analizó primero la clase ```ControlFrame```, en la cual se realizó una implementación de la opción ```STOP``` en el programa, en la cual en el código mostrado a continuación se verifica la condición de que el ```STOP``` sea falso siempre.**
+**Para finalizar con el laboratorio, se analizó primero la clase ```ControlFrame```, en la cual se realizó una implementación de la opción ```STOP``` en el programa, verificando esa condicion de que el ```STOP``` sea falso siempre.**
 
 ```java
 btnStop.addActionListener(new ActionListener() {
