@@ -67,13 +67,29 @@ Sincronización y Dead-Locks.
 	* Cada jugador, permanentemente, ataca a algún otro inmortal. El que primero ataca le resta M puntos de vida a su contrincante, y aumenta en esta misma cantidad sus propios puntos de vida.
 	* El juego podría nunca tener un único ganador. Lo más probable es que al final sólo queden dos, peleando indefinidamente quitando y sumando puntos de vida.
 
-El programa "highlander-simulator" ejecuta un juego en el que N jugadores inmortales se atacan entre sí permanentemente e indefinidamente, y al analizar la interfaz del programa, solo funciona el botón ```Start``` y ```Pause and check```, los cuales se encargan de inicializar el programa y pausar el programa respectivamente. Al pausar el programa, en la interfaz del programa se visualiza la vida de los tres inmortales y la sumatoria de la vida de los tres inmortales, como se ve en la siguiente imagen.
+**El programa "highlander-simulator" ejecuta un juego en el que N jugadores inmortales se atacan entre sí permanentemente e indefinidamente, y al analizar la interfaz del programa, solo funciona el botón ```Start``` y ```Pause and check```, los cuales se encargan de inicializar el programa y pausar el programa respectivamente. Al pausar el programa, en la interfaz del programa se visualiza la vida de los tres inmortales y la sumatoria de la vida de los tres inmortales, como se ve en la siguiente imagen.**
 
-![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.1.PNG)
 
-2. Revise el código e identifique cómo se implemento la funcionalidad antes indicada. Dada la intención del juego, un invariante debería ser que la sumatoria de los puntos de vida de todos los jugadores siempre sea el mismo(claro está, en un instante de tiempo en el que no esté en proceso una operación de incremento/reducción de tiempo). Para este caso, para N jugadores, cual debería ser este valor?.
+2. Revise el código e identifique cómo se implemento la funcionalidad antes indicada. Dada la intención del juego, un invariante debería ser que la sumatoria de los puntos de vida de todos los jugadores siempre sea el mismo (claro está, en un instante de tiempo en el que no esté en proceso una operación de incremento/reducción de tiempo). Para este caso, para N jugadores, cual debería ser este valor?.
+
+**Al realizar la respectiva revisión de todas las clases, que son ```ControlFrame```, ```Immortal``` y ```ImmortalUpdateReportCallback```, se evidenció la vida de cada inmortal debería ser de 100 puntos, por lo tanto la vida global es igual a 100 multiplicado por la cantidad de N inmortales.**
 
 3. Ejecute la aplicación y verifique cómo funcionan las opción ‘pause and check’. Se cumple el invariante?.
+
+**Al realizar la respectiva ejecución del programa por primera ves, y al realizar clic en ```Pause and check``` por primera ves, obtenemos el siguiente resultado. Como se puede evidenciar, la sumatoria de la vida de los tres inmortales es de: ```480```.**
+
+
+
+**Luego de realizar posteriormente un segundo clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de ```1480```.**
+
+
+
+**Después de realizar el tercer clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de ```1990```.**
+
+
+
+**Luego de realizar estos tres experimentos, claramente se evidencia que el invariante no se cumple, ya que la sumatoria de la vida global siempre está cambiando, como se ve en las tres imágenes anteriormente analizadas, cambia el valor de la sumatoria de la vida global de ```480``` a ```1480```, y de ```1480``` a ```1990``` respectivamente.**
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
