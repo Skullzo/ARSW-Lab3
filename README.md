@@ -223,7 +223,7 @@ public void fight(Immortal i2) {
 	* Analizando el esquema de funcionamiento de la simulación, esto podría crear una condición de carrera? Implemente la funcionalidad, ejecute la simulación y observe qué problema se presenta cuando hay muchos 'inmortales' en la misma. Escriba sus conclusiones al respecto en el archivo RESPUESTAS.txt.
 	* Corrija el problema anterior __SIN hacer uso de sincronización__, pues volver secuencial el acceso a la lista compartida de inmortales haría extremadamente lenta la simulación.
 	
-**Para solucionar este problema usamos ```CopyOnWriteArrayList``` que trabaja principalmente con colección y concurrencia.**
+**Para solucionar este problema se utilizó ```CopyOnWriteArrayList``` que trabaja principalmente con colección y concurrencia.**
 
 **Posteriormente modificamos el método ```changeHealth```, donde fueron eliminados los inmortales que están muertos. El código quedó de la siguiente forma.**
 
