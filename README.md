@@ -93,7 +93,64 @@ Sincronización y Dead-Locks.
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
+**Antes de realizar la respectiva implementación en el código para que antes de imprimir los resultados actuales, se pausen todos los demás hilos, se analizó la clase ```Immortal```, la cual se escogió para realizar dicha implementación, añadiendo un condicional que lo que hace es que si el programa está en pausa, se pausen todos los hilos antes de imprimir los resultados actuales. Para ésto se modificó el método ```run()``` de la clase ```Immortal```, quedando de la siguiente forma.**
+
+```java
+public void run() {
+		while (true) {
+			if (!ControlFrame.stop) {
+				if (!enPausa) {
+					Immortal im;
+					int myIndex = immortalsPopulation.indexOf(this);
+					int nextFighterIndex = r.nextInt(immortalsPopulation.size());
+					// avoid self-fight
+					if (nextFighterIndex == myIndex) {
+						nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+					}			
+					im = immortalsPopulation.get(nextFighterIndex);
+					this.fight(im);
+					try {
+						Thread.sleep(1);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				} else {
+					pausar();
+				}
+			}
+		}
+	}
+```
+
+**Posteriormente se realizó la respectiva implementación de la opción ```resume```, en la clase ```ControlFrame```, añadiendo el siguiente cambio al método ```actionPerformed```, quedando de la siguiente forma.**
+
+```java
+public void actionPerformed(ActionEvent e) {
+                /**
+                 * IMPLEMENTAR
+                 */
+            	synchronized (ControlFrame.getMonitor()) {
+            		ControlFrame.getMonitor().notifyAll();
+                	for (Immortal im : immortals) {
+                    		im.setPausa(false);
+                    	}
+		} 
+}
+```
+
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
+
+**Luego de verificar nuevamente el funcionamiento realizando un clic, obtenemos el siguiente resultado. Como se observa en la imagen, la sumatoria de las vidas totales de los inmortales es de: ```280```.
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.5.1.PNG)
+
+**Después, al realizar varias veces clic en el botón, el resultado de la sumatoria de vidas totales de los inmortales es de: ```120```.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.5.2.PNG)
+
+**Al realizar el experimento de realizar muchas veces clic en el botón, y luego de analizar los resultados, el invariante aún no se cumple por el momento, ya que a veces aumenta y a veces disminuye como se observa en las dos imágenes anteriormente analizadas.**
+
+**El invariante no se cumple por el momento, a veces aumenta y a veces disminuye, como se puede ver en las imagenes del punto 3**
 
 6. Identifique posibles regiones críticas en lo que respecta a la pelea de los inmortales. Implemente una estrategia de bloqueo que evite las condiciones de carrera. Recuerde que si usted requiere usar dos o más ‘locks’ simultáneamente, puede usar bloques sincronizados anidados:
 
