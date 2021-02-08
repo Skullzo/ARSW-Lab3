@@ -81,11 +81,11 @@ Sincronización y Dead-Locks.
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.2.1.PNG)
 
-**Luego de realizar posteriormente un segundo clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de ```1480```.**
+**Luego de realizar posteriormente un segundo clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de: ```1480```.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.2.2.PNG)
 
-**Después de realizar el tercer clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de ```1990```.**
+**Después de realizar el tercer clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de: ```1990```.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.2.3.PNG)
 
