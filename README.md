@@ -176,12 +176,12 @@ public void actionPerformed(ActionEvent e) {
 
 ```java
 btnStop.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	for (Immortal im : immortals) {
-                	im.setPausa(true);
+	public void actionPerformed(ActionEvent e) {
+		for (Immortal im : immortals) {
+			im.setPausa(true);
                 }
                 stop = true;
-            }
+	}
 });
 ```
 
