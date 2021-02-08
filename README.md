@@ -67,6 +67,10 @@ Sincronización y Dead-Locks.
 	* Cada jugador, permanentemente, ataca a algún otro inmortal. El que primero ataca le resta M puntos de vida a su contrincante, y aumenta en esta misma cantidad sus propios puntos de vida.
 	* El juego podría nunca tener un único ganador. Lo más probable es que al final sólo queden dos, peleando indefinidamente quitando y sumando puntos de vida.
 
+El programa "highlander-simulator" ejecuta un juego en el que N jugadores inmortales se atacan entre sí permanentemente e indefinidamente, y al analizar la interfaz del programa, solo funciona el botón ```Start``` y ```Pause and check```, los cuales se encargan de inicializar el programa y pausar el programa respectivamente. Al pausar el programa, en la interfaz del programa se visualiza la vida de los tres inmortales y la sumatoria de la vida de los tres inmortales, como se ve en la siguiente imagen.
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/parte2.2.PNG)
+
 2. Revise el código e identifique cómo se implemento la funcionalidad antes indicada. Dada la intención del juego, un invariante debería ser que la sumatoria de los puntos de vida de todos los jugadores siempre sea el mismo(claro está, en un instante de tiempo en el que no esté en proceso una operación de incremento/reducción de tiempo). Para este caso, para N jugadores, cual debería ser este valor?.
 
 3. Ejecute la aplicación y verifique cómo funcionan las opción ‘pause and check’. Se cumple el invariante?.
