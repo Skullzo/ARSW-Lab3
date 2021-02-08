@@ -79,15 +79,15 @@ Sincronización y Dead-Locks.
 
 **Al realizar la respectiva ejecución del programa por primera ves, y al realizar clic en ```Pause and check``` por primera ves, obtenemos el siguiente resultado. Como se puede evidenciar, la sumatoria de la vida de los tres inmortales es de: ```480```.**
 
-
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.2.1.PNG)
 
 **Luego de realizar posteriormente un segundo clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de ```1480```.**
 
-
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.2.2.PNG)
 
 **Después de realizar el tercer clic en ```Pause and check```, sin terminar la ejecución del programa, se puede observar a continuación que la sumatoria de los tres inmortales es de ```1990```.**
 
-
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.2.3.PNG)
 
 **Luego de realizar estos tres experimentos, claramente se evidencia que el invariante no se cumple, ya que la sumatoria de la vida global siempre está cambiando, como se ve en las tres imágenes anteriormente analizadas, cambia el valor de la sumatoria de la vida global de ```480``` a ```1480```, y de ```1480``` a ```1990``` respectivamente.**
 
