@@ -140,7 +140,7 @@ public void actionPerformed(ActionEvent e) {
 
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
 
-**Luego de verificar nuevamente el funcionamiento realizando un clic, obtenemos el siguiente resultado. Como se observa en la imagen, la sumatoria de las vidas totales de los inmortales es de: ```280```.
+**Luego de verificar nuevamente el funcionamiento realizando un clic, obtenemos el siguiente resultado. Como se observa en la imagen, la sumatoria de las vidas totales de los inmortales es de: ```280```.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.5.1.PNG)
 
@@ -149,8 +149,6 @@ public void actionPerformed(ActionEvent e) {
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.5.2.PNG)
 
 **Al realizar el experimento de realizar muchas veces clic en el botón, y luego de analizar los resultados, el invariante aún no se cumple por el momento, ya que a veces aumenta y a veces disminuye como se observa en las dos imágenes anteriormente analizadas.**
-
-**El invariante no se cumple por el momento, a veces aumenta y a veces disminuye, como se puede ver en las imagenes del punto 3**
 
 6. Identifique posibles regiones críticas en lo que respecta a la pelea de los inmortales. Implemente una estrategia de bloqueo que evite las condiciones de carrera. Recuerde que si usted requiere usar dos o más ‘locks’ simultáneamente, puede usar bloques sincronizados anidados:
 
