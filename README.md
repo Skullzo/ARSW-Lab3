@@ -172,6 +172,19 @@ public void actionPerformed(ActionEvent e) {
 
 11. Para finalizar, implemente la opción STOP.
 
+**Para finalizar con el laboratorio, se analizó primero la clase ```ControlFrame```, en la cual se realizó una implementación de la opción ```STOP``` en el programa, en la cual en el código mostrado a continuación se verifica la condición de que el ```STOP``` sea falso siempre.**
+
+```java
+btnStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	for (Immortal im : immortals) {
+                	im.setPausa(true);
+                }
+                stop = true;
+            }
+});
+```
+
 ## Autores
 [Alejandro Toro Daza](https://github.com/Skullzo)
 
