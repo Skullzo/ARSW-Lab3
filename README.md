@@ -207,7 +207,7 @@ public void fight(Immortal i2) {
 
 **Luego de analizar el problema usando los programas ```jps``` y ```jstack``` e identificando por qué el programa se detuvo, y realizando las respectivas correcciones, se observa que el programa ya funciona de manera consistente, retornando resultados con sumatorias de vida total válidos cuando se ejecutan 100, 1000 o 10000 inmortales, y demostrando ahora que el invariante si se cumple.**
 
-**A continuación se muestra la ejecución del programa con ```100``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```10000```.**
+**A continuación, se muestra la ejecución del programa con ```100``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```10000```.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.9.1.PNG)
 
@@ -215,13 +215,28 @@ public void fight(Immortal i2) {
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.9.2.PNG)
 
-**Ahora se muestra la ejecución del programa con ```10000``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```1000000```.**
+**Por último, se muestra la ejecución del programa con ```10000``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```1000000```.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.9.3.PNG)
 
 10. Un elemento molesto para la simulación es que en cierto punto de la misma hay pocos 'inmortales' vivos realizando peleas fallidas con 'inmortales' ya muertos. Es necesario ir suprimiendo los inmortales muertos de la simulación a medida que van muriendo. Para esto:
 	* Analizando el esquema de funcionamiento de la simulación, esto podría crear una condición de carrera? Implemente la funcionalidad, ejecute la simulación y observe qué problema se presenta cuando hay muchos 'inmortales' en la misma. Escriba sus conclusiones al respecto en el archivo RESPUESTAS.txt.
 	* Corrija el problema anterior __SIN hacer uso de sincronización__, pues volver secuencial el acceso a la lista compartida de inmortales haría extremadamente lenta la simulación.
+	
+**Para solucionar este problema usamos ```CopyOnWriteArrayList``` que trabaja principalmente con colección y concurrencia.**
+
+**Posteriormente modificamos el método ```changeHealth```, donde fueron eliminados los inmortales que están muertos. El código quedó de la siguiente forma.**
+
+```java
+public void changeHealth(int v) {
+   if(this.health > 0) {
+       health = v;
+   }else{
+       health = v;
+       immortalsPopulation.remove(this);
+   }
+}
+```
 
 11. Para finalizar, implemente la opción STOP.
 
