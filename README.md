@@ -229,12 +229,12 @@ public void fight(Immortal i2) {
 
 ```java
 public void changeHealth(int v) {
-   if(this.health > 0) {
-       health = v;
-   }else{
-       health = v;
-       immortalsPopulation.remove(this);
-   }
+	if(this.health > 0) {
+		health = v;
+	}else{
+		health = v;
+		immortalsPopulation.remove(this);
+	}
 }
 ```
 
