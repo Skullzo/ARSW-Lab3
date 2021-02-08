@@ -160,7 +160,7 @@ public void actionPerformed(ActionEvent e) {
 	}
 	```
 
-**Teniendo en cuenta las posibles regiones críticas en lo que respecta a la pelea de los inmortales, se le hicieron las siguientes modificaciones al código, añadiendo como dice en el enunciado bloques sincronizados anidados, en los cuales se implementó satisfactoriamente una estrategia de bloqueo que evite las condiciones de carrera, quedando el código de la siguiente forma.**
+**Teniendo en cuenta las posibles regiones críticas en lo que respecta a la pelea de los inmortales, se le hicieron las siguientes modificaciones al código, añadiendo como dice en el enunciado bloques sincronizados anidados, en los cuales se implementó una estrategia de bloqueo que evite las condiciones de carrera, quedando el código de la siguiente forma.**
 
 ```java
 public void fight(Immortal i2) {
@@ -183,13 +183,41 @@ public void fight(Immortal i2) {
 
 7. Tras implementar su estrategia, ponga a correr su programa, y ponga atención a si éste se llega a detener. Si es así, use los programas jps y jstack para identificar por qué el programa se detuvo.
 
-**Luego de correr el programa, se detuvo automáticamente luego de ejecutarlo, retornando todas las peleas de los inmortales de la siguiente forma.**
+**Luego de correr el programa con tres inmortales, se detuvo automáticamente luego de ejecutarlo, el cual representa un problema, ya que no se cumple el invariante, al variar la sumatoria de vidas totales y al detenerse el programa automáticamente de la siguiente forma.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.7.PNG)
 
 8. Plantee una estrategia para corregir el problema antes identificado (puede revisar de nuevo las páginas 206 y 207 de _Java Concurrency in Practice_).
 
+**Luego de plantear una estrategia después de revisar el material del libro _Java Concurrency in Practice_, se tuvo que cambiar gran parte del código, principalmente los bloques sincronizados anidados propuestos en el numeral ```6```, quedando ahora el método ```fight``` de la clase ```Immortal``` de la siguiente forma.**
+
+```java
+public void fight(Immortal i2) {
+    	if (i2.getHealth() > 0) {
+            i2.changeHealth(i2.getHealth() - defaultDamageValue);
+            this.health += defaultDamageValue;
+            updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
+        } else {
+            updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
+        }
+}
+```
+
 9. Una vez corregido el problema, rectifique que el programa siga funcionando de manera consistente cuando se ejecutan 100, 1000 o 10000 inmortales. Si en estos casos grandes se empieza a incumplir de nuevo el invariante, debe analizar lo realizado en el paso 4.
+
+**Luego de analizar el problema usando los programas ```jps``` y ```jstack``` e identificando por qué el programa se detuvo, y realizando las respectivas correcciones, se observa que el programa ya funciona de manera consistente, retornando resultados con sumatorias de vida total válidos cuando se ejecutan 100, 1000 o 10000 inmortales, y demostrando ahora que el invariante si se cumple.**
+
+**A continuación se muestra la ejecución del programa con ```100``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```10000```.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.9.1.PNG)
+
+**Ahora se muestra la ejecución del programa con ```1000``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```100000```.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.9.2.PNG)
+
+**Ahora se muestra la ejecución del programa con ```10000``` inmortales. Como se observa a continuación, no hay resultados inconclusos, y el invariante en este caso, es la sumatoria de vidas totales, que como se muestra en la imagen, es de: ```1000000```.**
+
+![img](https://github.com/Skullzo/ARSW-Lab3/blob/main/img/Parte3.9.3.PNG)
 
 10. Un elemento molesto para la simulación es que en cierto punto de la misma hay pocos 'inmortales' vivos realizando peleas fallidas con 'inmortales' ya muertos. Es necesario ir suprimiendo los inmortales muertos de la simulación a medida que van muriendo. Para esto:
 	* Analizando el esquema de funcionamiento de la simulación, esto podría crear una condición de carrera? Implemente la funcionalidad, ejecute la simulación y observe qué problema se presenta cuando hay muchos 'inmortales' en la misma. Escriba sus conclusiones al respecto en el archivo RESPUESTAS.txt.
